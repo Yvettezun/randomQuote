@@ -1,0 +1,36 @@
+
+
+body{
+    background-color: #588157;
+    color:white;
+}
+
+#quote{
+    font-size: 3rem;
+    
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin: 10% auto;
+    text-align:center;
+   
+}
+
+#button{
+    background-color:#A9E5BB ;
+    border: solid black 2px;
+    border-radius: 9px;
+    width: fit-content;
+    padding: 1em;
+    font-weight: 600;
+}
+
+#author{
+    font-style: italic;
+    font-size: 3rem;
+}
