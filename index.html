@@ -10,16 +10,26 @@
 <body>
     
     <div class="container"> 
-        <p id="quote"></p>
-        <p id="author"></p>
-        <button id="button">Show another quote</button>
-
+        <p id="quote" class="quote--text"></p>
+        <p id="author" class="author--text"></p>
+        <button id="button" class="button--mod button">Show another quote</button>
         
+    </div>
+
+    <div class="container">
+        <label for="inputName" class="quote--text">Select an author:</label>
+        <select id="authors" name="authors"></select>
+
+        <p id="authorQuote" class="quote--text"></p>
+        <p id="authorName" class="author--text"></p>
+
+        <button id="generateQuotes" class="button--mod button">Click to get quote!</button>
+          
     </div>
 
     
 
 
-    <script src="./main.js"></script>
+    <script type='module' src="./main.js"></script>
 </body>
 </html>

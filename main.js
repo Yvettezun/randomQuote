@@ -1,13 +1,12 @@
+import {randomQuote,generateOptions,getQuote} from './app.js'; //import methods
+
+
 const button=document.getElementById('button');
-button.addEventListener('click',generateQuote);
+button.addEventListener('click',generateQuote);//once clicked generateQuote
 
 
-function randomQuote(array){
- let index=Math.floor(Math.random()*array.length);
- return array[index];
-}
 
-async function generateQuote(){
+async function generateQuote(){ //display a random quote
     
     const url="https://type.fit/api/quotes";
     try{
@@ -27,5 +26,38 @@ async function generateQuote(){
     }
 }
 
-onload=generateQuote; //once page loads, automatically calls function so that when you load the page, you dont have to click the button to start
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+let authorBtn=document.getElementById('generateQuotes'); 
+authorBtn.addEventListener('click',getAuthors); //once clicked generate getAuthors
+
+async function getAuthors(){
+    const url="https://type.fit/api/quotes"
+    fetch(url)
+    try{
+        let response= await fetch(url);
+        if(response.ok){
+            let jsonResponse= await response.json();
+            
+            generateOptions(jsonResponse);//displays options of all authors in api available
+            getQuote(jsonResponse);//calls getQuote- displays random quore of a user selected author 
+        }
+        else{
+            throw new Error('oops! Something went wrong :(');
+        }
+
+    } catch(error){
+        console.log(error);
+    }
+}
+
+
+onload=getAuthors;
+// onload=getAuthors;//once page loads, automatically calls function so that when you load the page, you dont have to click the button to start
 //no wait for user to click button to display quote, will execute function one time automatically so that a quote will be onscreen 
+
+
+
+
